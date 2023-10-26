@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Galaxy - Personal Blog Template</title>
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <!-- theme meta -->
+    <meta name="theme-name" content="galaxy" />
+
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome/css/all.css">
+
+    <!-- Main Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <style>
+.input-with-select {
+  display: flex;
+  align-items: center;
+  border: none; /* Loại bỏ border cho div */
+}
+
+.inp {
+  border: none; /* Loại bỏ border */
+  border-radius: 4px; /* Tùy chỉnh viền bo tròn nếu cần thiết */
+  border-right: none; /* Bỏ viền bên phải */
+}
+
+ .inp,
+ .sel {
+  border: none; /* Loại bỏ border cho input và select */
+  padding: 8px; /* Tùy chỉnh khoảng cách nội dung nếu cần thiết */
+  margin: 0; /* Loại bỏ khoảng cách bên ngoài */
+  flex: 1; /* Sử dụng flexbox để đảm bảo chiều rộng bằng nhau */
+}
+
+
+
+    </style>
+
+</head>
+<body>
+    <!-- START preloader-wrapper -->
+    <div class="preloader-wrapper">
+        <div class="preloader-inner">
+            <div class="spinner-border text-red"></div>
+        </div>
+    </div>
+    <!-- END preloader-wrapper -->
+    
+    <!-- START main-wrapper -->
+    <section class="d-flex">
+  
+<!-- start of sidenav -->
+<aside><div class="sidenav position-sticky d-flex flex-column justify-content-between">
+    <a class="navbar-brand" href="index.html" class="logo">
+        <img src="images/logo.png" alt="">
+    </a>
+    <!-- end of navbar-brand -->
+
+    <div class="navbar navbar-dark my-4 p-0 font-primary">
+        <ul class="navbar-nav w-100">
+            <li class="nav-item active">
+                <a class="nav-link text-white px-0 pt-0" href="index.html">Home</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link text-white px-0" href="about.html">About</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link text-white px-0" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item  ">
+                <!-- <div id="drop-menu" class="drop-menu collapse">
+                    <a class="d-block " href="index-2.html">Home 2</a>
+                    <a class="d-block " href="category.html">Category</a>
+                    <a class="d-block " href="post-details.html">Post Details</a>
+                    <a class="d-block " href="privacy.html">Privacy &amp; Policy</a>
+                </div> -->
+                <a class="nav-link text-white" href="#!" role="button" data-toggle="collapse" data-target="" aria-expanded="false" aria-controls="drop-menu">Pages</a>
+            </li>
+            <li class="nav-item mt-3">
+                <select class="custom-select bg-transparent rounded-0 text-white shadow-none" id="pick-lang">
+                    <option selected value="en">English</option>
+                    <option value="fr">French</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+    <!-- end of navbar -->
+
+    <ul class="list-inline nml-2">
+        <li class="list-inline-item">
+            <a href="#!" class="text-white text-red-onHover pr-2">
+                <span class="fab fa-twitter"></span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a href="#!" class="text-white text-red-onHover p-2">
+                <span class="fab fa-facebook-f"></span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a href="#!" class="text-white text-red-onHover p-2">
+                <span class="fab fa-instagram"></span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a href="#!" class="text-white text-red-onHover p-2">
+                <span class="fab fa-linkedin-in"></span>
+            </a>
+        </li>
+    </ul>
+    <!-- end of social-links -->
+</div></aside>
+<!-- end of sidenav -->
+    <div class="main-content">
+        <!-- start of mobile-nav -->
+<header class="mobile-nav pt-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="">
+                </a>
+            </div>
+            <div class="col-6 text-right">
+                <button class="nav-toggle bg-transparent border text-white">
+                    <span class="fas fa-bars"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="nav-toggle-overlay"></div>
+<!-- end of mobile-nav -->
+
+
+        <div class="mb-5 container justify-content-center pt-4 mt-5">
+            <div  style="width: 500px; background-color: white; border-radius: 5px; margin-left: 20%; margin-top: 15%;">
+        
+            <form  style="width: 480px; padding-left: 45px;">
+                <div class="mb-3">
+                  <label class="mt-3 " style="color: black; font-size: 20px;">Send Privately</label>
+                  <label style="padding-left: 220px;">icon</label>  
+                </div>
+                <div class="mb-3">
+                    <div class="input-with-select" style="width: 400px; border: 0.5px gray solid; border-radius: 5px; background-color: azure;">
+                        <input class="inp" type="text" placeholder="0" style="color: black;">
+                        <div class="dropdown">
+                            <div class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                SOL
+                            </div>
+                            <ul id="myDropdown" class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" id="actionLink">SOL</a></li>
+                                <li><a class="dropdown-item" href="#" id="anotherActionLink">USDC</a></li>
+                                <li><a class="dropdown-item" href="#" id="somethingElseLink">USDT</a></li>
+                                <li><a class="dropdown-item" href="#" id="mSOLLink">mSOL</a></li>
+                            </ul>
+                        </div>
+    
+                        
+                      </div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Private balance:</label>
+                  <label style="padding-left: 175px;">
+                  <button style=" color: black; border-radius: 5px; "  class="btn btn-secondary justify-content-between" >Top up</button>
+                </label>
+                </div>
+                <div class="mb-3">
+                    <div class="input-with-select"   style=" background-color: azure;">
+                    <input type="text" placeholder="Recipient's address"   style=" width: 400px; height: 45px; border-radius: 5px; border: 0.5px gray solid">
+                </div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="mt-3 ">Total fees</label>
+                    <label style="padding-left: 195px;">
+                        
+                        <div class="  accordion" style="margin-left: 60px;">
+                            <a class="nav-link " href="#!" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Pages</a>
+                           
+                            
+                        </div>
+
+                    </label>  
+                    <div id="drop-menu" class="drop-menu collapse">
+                        <a class="d-block " href="">Home 2</a>
+                        <a class="d-block " href="">Category</a>
+                        <a class="d-block " href="">Post Details</a>
+                        <a class="d-block " href="">Privacy &amp; Policy</a>
+                    </div>
+                  </div>
+                <button type="submit" class="btn mb-3  " style="background-color: rgb(75, 96, 139); width: 400px; height: 45px;">Send</button>
+                
+            </form>
+            </div>
+        </div>
+
+        <!-- start of footer -->
+<!-- <footer class="bg-dark">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-3 col-sm-6 mb-5">
+                <h5 class="font-primary text-white mb-4">Inspirations</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#!">Privacy State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                    <li><a href="#!">State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-5">
+                <h5 class="font-primary text-white mb-4">Templates</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#!">Privacy State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                    <li><a href="#!">State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-5">
+                <h5 class="font-primary text-white mb-4">Resource</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#!">Privacy State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                    <li><a href="#!">State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-5">
+                <h5 class="font-primary text-white mb-4">Company</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#!">Privacy State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                    <li><a href="#!">State</a></li>
+                    <li><a href="#!">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer> -->
+<!-- end of footer -->
+    </div>
+
+    </section>
+    <!-- END main-wrapper -->
+
+    <!-- All JS Files -->
+    <script src="plugins/jQuery/jquery.min.js"></script>
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        
+       document.getElementById('actionLink').addEventListener('click', function() {
+        var myDropdown = new bootstrap.Dropdown(document.getElementById('myDropdown'));
+        myDropdown.show();
+    });
+
+    document.getElementById('anotherActionLink').addEventListener('click', function() {
+        var myDropdown = new bootstrap.Dropdown(document.getElementById('myDropdown'));
+        myDropdown.show();
+    });
+
+    document.getElementById('somethingElseLink').addEventListener('click', function() {
+        var myDropdown = new bootstrap.Dropdown(document.getElementById('myDropdown'));
+        myDropdown.show();
+    });
+
+    document.getElementById('mSOLLink').addEventListener('click', function() {
+        var myDropdown = new bootstrap.Dropdown(document.getElementById('myDropdown'));
+        myDropdown.show();
+    });
+        </script>
+        
+        </body>
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
