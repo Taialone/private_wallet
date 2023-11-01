@@ -1,5 +1,5 @@
 {
-  "name": "elusiv-webpack-babel",
+  "name": "private_wallet",
   "version": "1.0.0",
   "description": "Demo application to show usage of Elusiv's SDK with React and Webpack",
   "scripts": {
