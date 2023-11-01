@@ -1,6 +1,7 @@
 import { Elusiv, SEED_MESSAGE } from "@elusiv/sdk";
 import { sign } from "@noble/ed25519";
-import { Connection, Keypair } from "@solana/web3.js";
+import { Connection, Keypair, PublicKey } from "@solana/web3.js";
+// import base58 from 'base-58';
 
 export async function getParams(): Promise<{
   elusiv: Elusiv;
@@ -9,10 +10,11 @@ export async function getParams(): Promise<{
 }> {
   const connection = new Connection("https://api.devnet.solana.com");
   // Add your own private key here
-  const srk = "4vABrbsmdgki6Ncwkm2YCWPPESQQExBNhnLS1w1sHa4mYdDPv9myuUw2FMXZjMHS8mxwVw6KvigLbc4UHYEXRsKG"
-  const buffer = Buffer.from(srk);
-  const keyPair = Keypair.fromSecretKey(
-    new Uint8Array(buffer)
+  const bs58 = require('bs58');
+  const secretKeyString = '4vABrbsmdgki6Ncwkm2YCWPPESQQExBNhnLS1w1sHa4mYdDPv9myuUw2FMXZjMHS8mxwVw6KvigLbc4UHYEXRsKG'
+  const secretKey = bs58.decode(secretKeyString)
+   const keyPair = Keypair.fromSecretKey(
+    new Uint8Array(secretKey)
   );
   const seed = getSignedSeed(keyPair);
   console.log(seed);

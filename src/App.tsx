@@ -6,6 +6,9 @@ import * as ed from "@noble/ed25519";
 import { sha512 } from "@noble/hashes/sha512";
 import { getParams } from "./helpers";
 import { Elusiv, TokenType } from "@elusiv/sdk";
+import "bootstrap/dist/css/bootstrap.min.css";
+import {Button} from "react-bootstrap";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 ed.etc.sha512Sync = (...m) => sha512(ed.etc.concatBytes(...m));
 
 // Add a recipient public key here
@@ -25,7 +28,7 @@ const App = () => {
       setElusiv(e);
       setKeyPair(kp);
       setConnection(conn);
-	  toast.info("Instantiated Elusiv");
+	    toast.info("Private Wallet");
       setIsLoading(false);
     };
 
@@ -106,20 +109,21 @@ const App = () => {
 
   return (
     <>
-      <h1>Elusiv Demo</h1>
+      <h1 className="display-6">Private Wallet</h1>
       <p>
         Connected to {isLoading ? "Loading..." : keyPair?.publicKey.toString()}
       </p>
-      <p>
+  
+      <p className="fs-5"> 
         Private Balance:{" "}
         {fetching ? "Loading..." : `${Number(balance) / LAMPORTS_PER_SOL} SOL`}
       </p>
-      <button onClick={(e) => topupHandler(e)} disabled={isLoading}>
+      <Button variant="primary" onClick={(e) => topupHandler(e)} disabled={isLoading}> 
         Topup
-      </button> {" "}
-      <button onClick={(e) => sendHandler(e)} disabled={isLoading || balance <= 0 || isSending}>
+      </Button> {" "}
+      <Button variant="secondary" onClick={(e) => sendHandler(e)} disabled={isLoading || balance <= 0 || isSending}>
         Send
-      </button>
+      </Button>
 	  <ToastContainer autoClose={5000} />
     </>
   );
