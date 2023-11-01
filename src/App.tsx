@@ -7,7 +7,11 @@ import { sha512 } from "@noble/hashes/sha512";
 import { getParams } from "./helpers";
 import { Elusiv, TokenType } from "@elusiv/sdk";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Button} from "react-bootstrap";
+import {Button, Container} from "react-bootstrap";
+import lodash from 'lodash';
+import Nav from 'react-bootstrap/Nav';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 ed.etc.sha512Sync = (...m) => sha512(ed.etc.concatBytes(...m));
 
@@ -106,10 +110,113 @@ const App = () => {
 		toast.success(`Send complete with sig ${sig.signature}`);
 	}
   };
-
   return (
+  
     <>
-      <h1 className="display-6">Private Wallet</h1>
+      <Nav className="justify-content-end" activeKey="/home">
+        <Nav.Item>
+          <Nav.Link href="/home">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>
+            Disabled
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
+      <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+        <link rel="icon" href="images/favicon.png" type="image/x-icon" />
+        {/* <link href="css/style.css" rel="stylesheet" /> */}
+<Container className="mt-3">
+<Row className="justify-content-md-center">
+        <Col xs lg="2">
+          1 of 3
+        </Col>
+        <Col md="auto">
+        <form style={{ width: 480, paddingLeft: 45 }}>
+      <div className="mb-3">
+      <label className="mt-3 " style={{ color: "black", fontSize: 20 }}>
+        Connected to {isLoading ? "Loading..." : lodash.take(keyPair?.publicKey.toString(), 3)}
+        </label>
+        <label style={{ paddingLeft: 220 }}>icon</label>
+      </div>
+      <div className="mb-3">
+        <div
+          className="input-with-select"
+          style={{
+            width: 400,
+            border: "0.5px gray solid",
+            borderRadius: 5,
+            backgroundColor: "azure"
+          }}
+        >
+          <input
+            className="inp"
+            type="text"
+            style={{ color: "black" }}
+          />
+          <div>
+            <div
+              className="btn "        >
+              SOL
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      <div className="mb-3">
+        <label htmlFor="exampleInputPassword1" className="form-label">
+          Private balance:  {fetching ? "Loading..." : `${Number(balance) / LAMPORTS_PER_SOL} SOL`}
+
+        </label>
+        <label style={{ paddingLeft: 15 }}>
+          <button
+            style={{ color: "black", borderRadius: 5 }}
+            className="btn btn-secondary justify-content-between" onClick={(e) => topupHandler(e)} disabled={isLoading}
+          >
+            Top up
+          </button>
+        </label>
+      </div>
+      <div className="mb-3">
+        <div className="input-with-select" style={{ backgroundColor: "azure" }}>
+          <input
+            type="text"
+            placeholder="Recipient's address"
+            style={{
+              width: 400,
+              height: 45,
+              borderRadius: 5,
+              border: "0.5px gray solid"
+            }}
+          />
+        </div>
+      </div>
+     
+      <button
+        type="submit"
+        className="btn mb-3  "
+        style={{ backgroundColor: "rgb(75, 96, 139)", width: 400, height: 45 }}
+        onClick={(e) => sendHandler(e)} disabled={isLoading || balance <= 0 || isSending}>
+        Send
+      </button>
+    </form>
+        </Col>
+        <Col xs lg="2">
+          3 of 3
+        </Col>
+      </Row>     
+
+</Container>
+    
+<script src="plugins/jQuery/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+      {/* <h1 className="display-6">Private Wallet</h1>
       <p>
         Connected to {isLoading ? "Loading..." : keyPair?.publicKey.toString()}
       </p>
@@ -123,8 +230,9 @@ const App = () => {
       </Button> {" "}
       <Button variant="secondary" onClick={(e) => sendHandler(e)} disabled={isLoading || balance <= 0 || isSending}>
         Send
-      </Button>
-	  <ToastContainer autoClose={5000} />
+      </Button> */}
+	 
+    
     </>
   );
 };
