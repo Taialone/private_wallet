@@ -1,7 +1,7 @@
 {
   "name": "private_wallet",
   "version": "1.0.0",
-  "description": "Demo application to show usage of Elusiv's SDK with React and Webpack",
+  "description": "private_wallet",
   "scripts": {
     "start": "webpack serve --mode=development",
     "build": "webpack --mode=production"
