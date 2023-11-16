@@ -11,7 +11,7 @@ export async function getParams(): Promise<{
   const connection = new Connection("https://api.devnet.solana.com");
   // Add your own private key here
   const bs58 = require('bs58');
-  const secretKeyString = '4vABrbsmdgki6Ncwkm2YCWPPESQQExBNhnLS1w1sHa4mYdDPv9myuUw2FMXZjMHS8mxwVw6KvigLbc4UHYEXRsKG'
+  const secretKeyString = '3YE5C9T7ec4zkDuMqY18YrW9y39JaRxMyL3AJpRtGbkMdzf9CtqT75MVmUpB43xdUJRbB2dpVcoX6U9i2b3a7vnA'
   const secretKey = bs58.decode(secretKeyString)
    const keyPair = Keypair.fromSecretKey(
     new Uint8Array(secretKey)
