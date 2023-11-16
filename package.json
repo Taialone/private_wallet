@@ -27,7 +27,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "@elusiv/sdk": "^0.1.22",
+    "@elusiv/sdk": "^0.1.23",
     "@noble/ed25519": "^2.0.0",
     "@solana/web3.js": "^1.77.3",
     "assert": "^2.0.0",

@@ -7,9 +7,9 @@ import { sha512 } from "@noble/hashes/sha512";
 import { getParams } from "./helpers";
 import { Elusiv, TokenType } from "@elusiv/sdk";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Button, Container} from "react-bootstrap";
+import './index.css';
+import { Button, Container } from "react-bootstrap";
 import lodash from 'lodash';
-import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -32,7 +32,7 @@ const App = () => {
       setElusiv(e);
       setKeyPair(kp);
       setConnection(conn);
-	    toast.info("Private Wallet");
+      toast.info("Private Wallet");
       setIsLoading(false);
     };
 
@@ -71,9 +71,9 @@ const App = () => {
 
   useEffect(() => {
     const getBalance = async () => {
-	  toast.info("Fetching private balance...");
+      toast.info("Fetching private balance...");
       const privateBalance = await elusiv.getLatestPrivateBalance("LAMPORTS");
-	  toast.success("Fetched private balance!");
+      toast.success("Fetched private balance!");
       setBalance(privateBalance);
       setFetching(false);
     };
@@ -97,125 +97,149 @@ const App = () => {
 
   const sendHandler = async (e) => {
     e.preventDefault();
-	setIsSending(true);
+    setIsSending(true);
     if (balance > BigInt(0)) {
-		// Send half a SOL
-		toast.info("Sending...");
-		const sig = await send(
-			elusiv,
-			recipient,
-			0.5 * LAMPORTS_PER_SOL,
-			"LAMPORTS"
-		);
-		toast.success(`Send complete with sig ${sig.signature}`);
-	}
+      // Send half a SOL
+      toast.info("Sending...");
+      const sig = await send(
+        elusiv,
+        recipient,
+        0.5 * LAMPORTS_PER_SOL,
+        "LAMPORTS"
+      );
+      toast.success(`Send complete with sig ${sig.signature}`);
+    }
   };
   return (
-  
+
     <>
-      <Nav className="justify-content-end" activeKey="/home">
-        <Nav.Item>
-          <Nav.Link href="/home">Active</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="link-1">Link</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="link-2">Link</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="disabled" disabled>
-            Disabled
-          </Nav.Link>
-        </Nav.Item>
-      </Nav>
+
       <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
-        <link rel="icon" href="images/favicon.png" type="image/x-icon" />
-        {/* <link href="css/style.css" rel="stylesheet" /> */}
-<Container className="mt-3">
-<Row className="justify-content-md-center">
-        <Col xs lg="2">
-          1 of 3
-        </Col>
-        <Col md="auto">
-        <form style={{ width: 480, paddingLeft: 45 }}>
-      <div className="mb-3">
-      <label className="mt-3 " style={{ color: "black", fontSize: 20 }}>
-        Connected to {isLoading ? "Loading..." : lodash.take(keyPair?.publicKey.toString(), 3)}
-        </label>
-        <label style={{ paddingLeft: 220 }}>icon</label>
-      </div>
-      <div className="mb-3">
-        <div
-          className="input-with-select"
-          style={{
-            width: 400,
-            border: "0.5px gray solid",
-            borderRadius: 5,
-            backgroundColor: "azure"
-          }}
-        >
-          <input
-            className="inp"
-            type="text"
-            style={{ color: "black" }}
-          />
-          <div>
-            <div
-              className="btn "        >
-              SOL
-            </div>
+      <link rel="icon" href="images/favicon.png" type="image/x-icon" />
+      {/* <link href="css/style.css" rel="stylesheet" /> */}
+      <Container style={{ paddingTop: "20px" }}>
+        <Row className="">
+
+          <Col xs lg="2" >
+
+
+            <div className="font-weight-bold " style={{ marginTop: "60px" }}><a
+              href="#"
+                style={{
+                  textDecoration: "none",
+                  color: isLoading ? "gray" : "white",
+                }}
+                onMouseEnter={e => {
+                  const target = e.target as HTMLAnchorElement;
+                  target.style.color = "gray";
+                }}
+                onMouseLeave={e => {
+                  const target = e.target as HTMLAnchorElement;
+                  target.style.color = isLoading ? "gray" : "white";
+                }}
+            > Connected to {isLoading ? "Loading..." : lodash.take(keyPair?.publicKey.toString(), 3)}
+            </a></div>
+            <div className="font-weight-bold mt-4"  ><a href="#" className="hover-link" style={{
+                  textDecoration: "none",
+                  color: isLoading ? "gray" : "white",
+                }}
+                onMouseEnter={e => {
+                  const target = e.target as HTMLAnchorElement;
+                  target.style.color = "gray";
+                }}
+                onMouseLeave={e => {
+                  const target = e.target as HTMLAnchorElement;
+                  target.style.color = isLoading ? "gray" : "white";
+                }}>About</a></div>
+            <div className="font-weight-bold mt-4" ><a href="#" className="hover-link" style={{
+                  textDecoration: "none",
+                  color: isLoading ? "gray" : "white",
+                }}
+                onMouseEnter={e => {
+                  const target = e.target as HTMLAnchorElement;
+                  target.style.color = "gray";
+                }}
+                onMouseLeave={e => {
+                  const target = e.target as HTMLAnchorElement;
+                  target.style.color = isLoading ? "gray" : "white";
+                }}>Contact</a></div>
+
+          </Col>
+          <Col md="auto" style={{ paddingLeft: "250px" }}>
+            <form style={{ width: 480, height:320, paddingLeft: "40px", backgroundColor: "white", borderRadius: "5px" }}>
+              
+              <div className="mb-3 pt-5 ">
+                <div
+                  className="input-with-select"
+                  style={{
+                    width: 400,
+                    border: "0.5px gray solid",
+                    borderRadius: 5,
+                    backgroundColor: "azure"
+                  }}
+                >
+                  <input
+                    className="inp"
+                    type="text"
+                    style={{ color: "black" }}
+                  />
+                  <div>
+                    <div
+                      className="btn "        >
+                      SOL
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="exampleInputPassword1" className="form-label">
+                  Private balance:  {fetching ? "Loading..." : `${Number(balance) / LAMPORTS_PER_SOL} SOL`}
+
+                </label>
+                <label style={{ paddingLeft: 15 }}>
+                  <button
+                    style={{ color: "black", borderRadius: 5 }}
+                    className="btn btn-secondary justify-content-between" onClick={(e) => topupHandler(e)} disabled={isLoading}
+                  >
+                    Top up
+                  </button>
+                </label>
+              </div>
+              <div className="mb-3">
+                <div className="input-with-select" style={{ backgroundColor: "" }}>
+                  <input
+                    type="text"
+                    placeholder="Recipient's address"
+                    style={{
+                      width: 400,
+                      height: 45,
+                      borderRadius: 5,
+                      border: "0.5px gray solid"
+                    }}
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="btn mb-3  "
+                style={{ backgroundColor: "rgb(75, 96, 139)", width: 400, height: 45 }}
+                onClick={(e) => sendHandler(e)} disabled={isLoading || balance <= 0 || isSending}>
+                Send
+              </button>
+            </form>
+          </Col>
+          <Col xs lg="2">
+
            
-          </div>
-        </div>
-      </div>
-      <div className="mb-3">
-        <label htmlFor="exampleInputPassword1" className="form-label">
-          Private balance:  {fetching ? "Loading..." : `${Number(balance) / LAMPORTS_PER_SOL} SOL`}
+          </Col>
+        </Row>
 
-        </label>
-        <label style={{ paddingLeft: 15 }}>
-          <button
-            style={{ color: "black", borderRadius: 5 }}
-            className="btn btn-secondary justify-content-between" onClick={(e) => topupHandler(e)} disabled={isLoading}
-          >
-            Top up
-          </button>
-        </label>
-      </div>
-      <div className="mb-3">
-        <div className="input-with-select" style={{ backgroundColor: "azure" }}>
-          <input
-            type="text"
-            placeholder="Recipient's address"
-            style={{
-              width: 400,
-              height: 45,
-              borderRadius: 5,
-              border: "0.5px gray solid"
-            }}
-          />
-        </div>
-      </div>
-     
-      <button
-        type="submit"
-        className="btn mb-3  "
-        style={{ backgroundColor: "rgb(75, 96, 139)", width: 400, height: 45 }}
-        onClick={(e) => sendHandler(e)} disabled={isLoading || balance <= 0 || isSending}>
-        Send
-      </button>
-    </form>
-        </Col>
-        <Col xs lg="2">
-          3 of 3
-        </Col>
-      </Row>     
+      </Container>
 
-</Container>
-    
-<script src="plugins/jQuery/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+      <script src="plugins/jQuery/jquery.min.js"></script>
+      <script src="js/script.js"></script>
       {/* <h1 className="display-6">Private Wallet</h1>
       <p>
         Connected to {isLoading ? "Loading..." : keyPair?.publicKey.toString()}
@@ -231,8 +255,8 @@ const App = () => {
       <Button variant="secondary" onClick={(e) => sendHandler(e)} disabled={isLoading || balance <= 0 || isSending}>
         Send
       </Button> */}
-	 
-    
+
+
     </>
   );
 };
